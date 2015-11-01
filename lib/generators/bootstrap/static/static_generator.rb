@@ -14,7 +14,7 @@ module Bootstrap
         app = ::Rails.application
         @app_name = app.class.to_s.split("::").first
         ext = app.config.generators.options[:rails][:template_engine] || :erb
-        copy_file "_#{component_name}.html.#{ext}", "app/views/statics/#{component_name}.html.#{ext}"
+        copy_file "#{component_name}.html.#{ext}", "app/views/statics/#{component_name}.html.#{ext}"
       end
     end
   end
