@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="mxLaps.com">
     <title><%%= content_for?(:title) ? yield(:title) : "<%= app_name %>" %></title>
     <%%= csrf_meta_tags %>
 
@@ -37,193 +35,51 @@
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
     <![endif]-->
-
   </head>
   <body>
 
-       <!-- Navigation -->
-       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-           <div class="container">
-               <!-- Brand and toggle get grouped for better mobile display - see header.html file -->
-               <div id="includedHeader"></div>
-               <!-- Collect the nav links, forms, and other content for toggling -->
-               <div id="includedNavbar"></div>
-               <!-- /.navbar-collapse -->
-           </div>
-           <!-- /.container -->
-       </nav>
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><%= app_name %></a>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><%%= link_to "Link1", "/path1"  %></li>
+            <li><%%= link_to "Link2", "/path2"  %></li>
+            <li><%%= link_to "Link3", "/path3"  %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-       <!-- Header Carousel -->
-       <header id="myCarousel" class="carousel slide">
-           <!-- Indicators -->
-           <ol class="carousel-indicators">
-               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-               <li data-target="#myCarousel" data-slide-to="1"></li>
-               <li data-target="#myCarousel" data-slide-to="2"></li>
-           </ol>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <%%= bootstrap_flash %>
+          <%%= yield %>
+        </div>
+        <div class="col-lg-3">
+          <div class="well sidebar-nav">
+            <h3>Sidebar</h3>
+            <ul class="nav nav-list">
+              <li class="nav-header">Sidebar</li>
+              <li><%%= link_to "Link1", "/path1"  %></li>
+              <li><%%= link_to "Link2", "/path2"  %></li>
+              <li><%%= link_to "Link3", "/path3"  %></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+      </div><!--/row-->
 
-           <!-- Wrapper for slides -->
-           <div class="carousel-inner">
-               <div class="item active">
-                   <div class="fill" style="background-image:url('images/slide-1-bg.jpg');"></div>
-                   <div class="carousel-caption">
-                       <h2 style="float: left;">Get Data...</h2>
-                   </div>
-               </div>
-               <div class="item">
-                   <div class="fill" style="background-image:url('images/slide-7-bg.jpg');"></div>
-                   <div class="carousel-caption">
-                       <h2>to Train Better...</h2>
-                   </div>
-               </div>
-               <div class="item">
-                   <div class="fill" style="background-image:url('images/slide-2-bg.jpg');"></div>
-                   <div class="carousel-caption">
-                       <h2 style="float: right;">...and Get Faster!</h2>
-                   </div>
-               </div>
-           </div>
+      <footer>
+        <p>&copy; Company <%= Date.today.year %></p>
+      </footer>
 
-           <!-- Controls -->
-           <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-               <span class="icon-prev"></span>
-           </a>
-           <a class="right carousel-control" href="#myCarousel" data-slide="next">
-               <span class="icon-next"></span>
-           </a>
-       </header>
-
-       <!-- Page Content -->
-       <div class="container">
-
-           <!-- Marketing Icons Section -->
-           <div class="row">
-               <div class="col-lg-12">
-                   <h1 class="page-header">
-                       Welcome to mxLaps.com
-                   </h1>
-               </div>
-               <div class="col-md-4">
-                   <div class="panel panel-default">
-                       <div class="panel-heading">
-                           <h4><i class="fa fa-fw fa-check"></i>Electronic Lap Timing</h4>
-                       </div>
-                       <div class="panel-body">
-                           <p>Getting your practice laps timed gives you invalueable data to determine if you're improving. Take your riding to the next level as you try different techniques. It's a great tool to help you get faster.</p>
-   <!--                         <a href="#" class="btn btn-default">Learn More</a> -->
-                       </div>
-                   </div>
-               </div>
-               <div class="col-md-4">
-                   <div class="panel panel-default">
-                       <div class="panel-heading">
-                           <h4><i class="fa fa-fw fa-bar-chart"></i> Crunch the Data</h4>
-                       </div>
-                       <div class="panel-body">
-                           <p>With practice lap time data you can see if you're getting faster. Determine if your new bike setup is working. Get bragging rights with your friends</p>
-   <!--                         <a href="#" class="btn btn-default">Learn More</a> -->
-                       </div>
-                   </div>
-               </div>
-               <div class="col-md-4">
-                   <div class="panel panel-default">
-                       <div class="panel-heading">
-                           <h4><i class="fa fa-fw fa-bicycle"></i> Go Faster</h4>
-                       </div>
-                       <div class="panel-body">
-                           <p>When you're informed with lap data you can make smart decisions and be confident you're moving in the right direction towards going faster. The separation is in the preparation! </p>
-   <!--                         <a href="#" class="btn btn-default">Learn More</a> -->
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <!-- /.row -->
-
-           <!-- Portfolio Section -->
-         <!--   <div class="row">
-               <div class="col-lg-12">
-                   <h2 class="page-header">Portfolio Heading</h2>
-               </div>
-               <div class="col-md-4 col-sm-6">
-                   <a href="portfolio-item.html">
-                       <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                   </a>
-               </div>
-               <div class="col-md-4 col-sm-6">
-                   <a href="portfolio-item.html">
-                       <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                   </a>
-               </div>
-               <div class="col-md-4 col-sm-6">
-                   <a href="portfolio-item.html">
-                       <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                   </a>
-               </div>
-               <div class="col-md-4 col-sm-6">
-                   <a href="portfolio-item.html">
-                       <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                   </a>
-               </div>
-               <div class="col-md-4 col-sm-6">
-                   <a href="portfolio-item.html">
-                       <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                   </a>
-               </div>
-               <div class="col-md-4 col-sm-6">
-                   <a href="portfolio-item.html">
-                       <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                   </a>
-               </div>
-           </div> -->
-           <!-- /.row -->
-
-           <!-- Features Section -->
-           <div class="row">
-               <div class="col-lg-12">
-                   <h2 class="page-header">Get Your Lap Data</h2>
-               </div>
-               <div class="col-md-6">
-                   <p><strong>During Practice or Races:</strong>
-                   </p>
-                   <ul>
-                       <li>Crunch the numbers</li>
-                       <li>Find out what is working and what isn't</li>
-                       <li>Compare lap times with your friends</li>
-                       <li>Find out if that suspension adjustment worked</li>
-                       <li>See your lap times improve</li>
-                       <li>Data available while you're at the track</li>
-                   </ul>
-                   <h2 class="page-header">Offered at StraddlelineORV Park!</h2>
-                   <!-- Preview Image -->
-                   <img class="img-responsive" src="http://placehold.it/555x185" alt="">
-               </div>
-               <div class="col-md-6">
-                   <img class="img-responsive" src="images/straddleline-sign.jpg" alt="">
-               </div>
-           </div>
-           <!-- /.row -->
-
-           <hr>
-
-           <!-- Call to Action Section -->
-           <div class="well">
-               <div class="row">
-                   <div class="col-md-8">
-                       <h3></h3>
-                   </div>
-                   <div class="col-md-4">
-                       <a class="btn btn-lg btn-default btn-block" href="contact.html">Learn more</a>
-                   </div>
-               </div>
-           </div>
-
-           <hr>
-
-           <!-- Footer -->
-           <div id="includedFooter"></div>
-
-       </div>
-       <!-- /.container -->
+    </div> <!-- /container -->
 
   </body>
 </html>
