@@ -10,7 +10,7 @@ module Bootstrap
 
       attr_reader :app_name
 
-      def generate_partial
+      def generate_statics
         app = ::Rails.application
         @app_name = app.class.to_s.split("::").first
         ext = app.config.generators.options[:rails][:template_engine] || :erb
